@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= book.titulo %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('../partials/nav.ejs') %>
+
+    <h1><%= book.titulo %> - <%= book.autor.nombreCompleto%></h1>
+    <p><%= book.precio %></p>
+
+  </body>
+</html>
