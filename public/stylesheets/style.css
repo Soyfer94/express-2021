@@ -12,42 +12,6 @@ body {
 a {
   color: #00B7FF;
 }
-img{
-  width: 100%;
-}
-
-.nav {
-  display: flex;
-  list-style: none;
-  margin-bottom: 40px;
-}
-.nav-item {
-  flex-grow: 1;
-}
-.nav-item_link {
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  background-color: antiquewhite;
-}
-.nav-item_link:hover {
-  color: black;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
 
 img {
   width: 100%;
@@ -81,15 +45,18 @@ img {
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
+
 .lista-item_link {
   background-color: #EAEAEA;
   border-radius: 2px;
   display: block;
   transition: background-color 0.4s;
 }
+
 .lista-item_link:hover {
   background-color: #FAFAFA;
 }
+
 .lista-item_titulo {
   padding: 15px;
 }
