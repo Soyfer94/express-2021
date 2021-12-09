@@ -10,13 +10,12 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
 
-    <form action="/resultado" method="GET"> 
+    <form action="/resultados" method="GET">
       <label>
-        Buscar el titulo:
-        <!-- Con el atributo name identificamos a caada input en el backend -->
+        Buscar por título:
+        <!-- Con el atributo name identificamos a cada input en el backend -->
         <input type="search" name="titulo">
       </label>
-
       <input type="submit" value="Buscar">
     </form>
 

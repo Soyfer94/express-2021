@@ -1,48 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Agregar</title>
+    <title>Agregar libro</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <%- include('../partials/nav.ejs') %>
 
     <h1>Agregar libro</h1>
+
     <form action="/agregar-libro" method="POST">
-        <label for="">
-            Titulo:
+        <label>
+            Título:
             <input type="text" name="titulo">
         </label><br>
-       <label>
-           Precio:
-           <input type="number" name="precio">
-       </label><br>
-       <label>
-           Portada:
-           <!-- Ponemos temporalmente un value predeterminado -->
-           <input type="text" name="portada" value="test">
-       </label> <br>
+        <label>
+            Precio:
+            <input type="number" name="precio">
+        </label><br>
+        <label>
+            Portada:
+            <!-- Ponemos temporalmente un value predeterminado -->
+            <input type="text" name="portada" value="test">
+        </label><br>
 
-      
-       <label for="autor">Autor</label>
-
-       <% authors.forEach(autor => { %>
-          <%= autor.nombreCompleto %>
-          <%= autor.idAutor %>
-       <% }) %>
-
-       <select id="autor" name="autor">
-        <% authors.forEach(autor => { %>
-          <option value="<%= autor.idAutor %>">
-            <%= autor.nombreCompleto %>
-          </option>
-        <% }) %>
-      </select>
+        <!-- 
+            Al usuario le muestro "King" pero a la DB le envío el ID a través del atributo value
+        -->
+        <label for="autor">Autor</label>
+        <select id="autor" name="autor">
+          <% authors.forEach(autor => { %>
+            <option value="<%= autor.idAutor %>">
+              <%= autor.nombreCompleto %>
+            </option>
+          <% }) %>
+        </select><br>
 
 
-       <input type="submit" value="Agregar libro">
 
+        <input type="submit" value="Agregar libro">
     </form>
 
   </body>
 </html>
+ 

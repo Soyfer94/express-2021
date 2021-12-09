@@ -25,21 +25,44 @@ router.get('/resultados', async (req, res) => {
 router.get('/agregar', async (req, res) => {
   const authors = await api.getAuthors();
 
-  console.log(authors);
-
   // Le envío los autores al EJS
   res.render('pages/agregar', { authors });
 });
 
-//POST agregar libro, proceso
-router.post('/agregar-libro', (req,res) => {
-  //levantar los datos del formulario de agregar
- console.log(req.body);
- const{ titulo, precio, portada, autor } = req.body;
- api.addBook(titulo, precio, portada, autor);
- 
- res.send('vas bien!');
+/* POST agregar libro, proceso */
+/*
+  REQuest -> solicitud
+    req.
+      params (:id)
+      query  (?q=jasdlkf)
+      body   (formularios con post)
+*/
+router.post('/agregar-libro', async (req, res) => {
+  // Levantar los datos del formulario de agregar
+  const { titulo, precio, portada, autor } = req.body;
+  await api.addBook(titulo, precio, portada, autor);
+
+  res.send('Vas bien!');
 });
+
+/* GET agregar autor page */
+// Formulario
+router.get('/agregar-autor', (req, res) => {
+  res.render('pages/agregar-autor');
+});
+
+/* Puedo compartir rutas y usar métodos distintos
+(GET y POST) */
+// Página que procesa los datos del formulario del GET
+router.post('/agregar-autor', async (req, res) => {
+  // Mostrar en consola lo que tipeó el usuario
+  // console.log('El usuario tipeó:', req.body.nombreCompleto);
+  await api.addAuthor(req.body.nombreCompleto);
+
+  // Conexión a la DB, enviando el nombreCompleto y agregando el reg
+  res.send('Estas en la versión de POST');
+});
+
 
 /* GET nosotros page */
 router.get('/nosotros', (req, res) => {

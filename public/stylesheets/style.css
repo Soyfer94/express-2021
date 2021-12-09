@@ -45,18 +45,15 @@ img {
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
-
 .lista-item_link {
   background-color: #EAEAEA;
   border-radius: 2px;
   display: block;
   transition: background-color 0.4s;
 }
-
 .lista-item_link:hover {
   background-color: #FAFAFA;
 }
-
 .lista-item_titulo {
   padding: 15px;
 }

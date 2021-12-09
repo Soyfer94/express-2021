@@ -58,12 +58,30 @@ const searchByTitle = async (titulo) => {
     return results;
 }
 
-const addBook = (titulo, precio, portada, autoId) =>{
-// Aca vamos a agregar un libro
-console.log('Llego:', titulo, precio, portada, autoId);
+ addBook = async (titulo, precio, portada, autorId) => {
+    // Acá vamos a agregar un libro
+    console.log('Llegó: ', titulo, precio, portada, autorId);
 
+    // Tengo que armar el INSERT INTO libro ...
+    const newBook = await db.libro.create({
+        titulo,
+        precio,
+        portada,
+        autorIdAutor: autorId
+    });
+
+    return newBook;
 }
 
+const addAuthor = async (nombreCompleto) => {
+    console.log('Recibí', nombreCompleto);
+    // Armar el INSERT INTO autor
+    const newAuthor = await db.autor.create({
+        nombreCompleto
+    });
+
+    return newAuthor;
+}
 
 // Exportamos las funciones
 module.exports = {
@@ -71,5 +89,6 @@ module.exports = {
     getAuthors,
     getBookById,
     searchByTitle,
-    addBook
+    addBook,
+    addAuthor
 }
